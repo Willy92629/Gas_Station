@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display PHP Result</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="result-container">
+      <!-- The fetched result will be displayed here as a string -->
+    </div>
+
+    <script>
+      // Use jQuery for AJAX request
+      $(document).ready(function () {
+        $.ajax({
+          url: "mytest.php", // Path to your PHP file that processes data
+          type: "GET", // Method type
+          success: function (response) {
+            // Display the fetched data as a string
+            $("#result-container").text(response);
+          },
+          error: function (xhr, status, error) {
+            console.error(status + ": " + error);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

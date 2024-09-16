@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display Database Result</title>
+  </head>
+  <body>
+    <div id="result-container">
+      <!-- The fetched result will be displayed here -->
+    </div>
+
+    <script>
+      fetch("http://localhost:3000/data")
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the received data
+          const resultContainer = document.getElementById("result-container");
+          resultContainer.innerHTML = JSON.stringify(data);
+        })
+        .catch((error) => console.error("Error:", error));
+    </script>
+  </body>
+</html>
